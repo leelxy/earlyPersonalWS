@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+body{ font-size: 12px; font-family: 'Microsoft YaHei';}
+
+/*公用列表*/
+.box .list_box { margin-right:-20px; overflow:hidden; }
+.list_box li{ float:left; display:inline; margin-right:20px; }
+/*标题小图标公用*/
+.play_num, .sourse, .l_msg{ position: relative; padding-left: 16px; }
+.play_num_icon, .sourse_peo, .msg_num{ background: url(../images/youku_icon.png) no-repeat; width: 12px; height: 12px; position: absolute; top: 3px; left: 0; }
+.play_num_icon{ background-position: -30px 0; }
+.sourse_peo{ background-position: 0 0; }
+.msg_num{ background-position: -60px 0; }
+.depth_read{ width: 56px; height: 20px; background: #06a7e1; text-align: center; line-height: 20px; position: absolute; right: 0; bottom: 0; color: #fff; }
+
+.box{ width:860px; height:370px; border:1px solid red; margin:50px auto; overflow:hidden; }
+.box .left_box, .box .right_box{ width:420px; }
+.left_box .l_top{ margin-bottom:20px; position: relative; width: 420px; height: 240px; }
+.l_top_box .shadow_tit{ position: absolute; width: 100%;  height: 90px; left: 0; bottom: 0; background: url(../images/youku_img_shadow0.png) no-repeat; }
+.l_top_box .l_tit_box{ position: absolute; padding: 5px; left: 0; bottom: 0; width: 100%; color: #fff; }
+.l_tit_box .l_tit{ font-size: 16px; }
+.list_r li{ margin-bottom:20px; position: relative; }
+.list_box li{ position: relative; vertical-align:top; height:110px; overflow:hidden; } 
+.list_box .tit_box{ position: absolute; width: 100%; height: 45px; bottom: 0; left: 0; }
+.tit_box .shadow_tit{ position: absolute; width: 100%; height: 45px; left: 0; bottom: 0; background: url(../images/youku_img_shadow.png) no-repeat; }
+.tit_box .tit{ position: absolute; left: 0; bottom: 0; color: #fff; line-height: 22px; padding: 0 6px; }
+.list_box .hover_box{ display: none; width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+.hover_box .hover_shadow{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: #000; opacity: 0.6; }
+.hover_box .info_box{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; line-height: 20px; }
+.info_box a{ display: block; height: 100%; padding: 10px 5px; color: #fff; }
+.info_box .info_tit{ font-weight: bold; }
+.info_box .info_des{ color: #bbb; }
+.info_box .btn_play{ width: 54px; height: 22px; background: #1c98e7; border: 1px solid #007dcc; text-align: center; line-height: 24px; margin-top: 5px; }
+.list_box li:hover .hover_box{ display: block; }
+.list_box li:hover .tit_box{ display: none;}

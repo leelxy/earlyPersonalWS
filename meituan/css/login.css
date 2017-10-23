@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+
+#logo{ top: 42px; }
+.main{ padding-top: 132px; }
+.login-box{ width: 260px; margin-right: 125px; }
+.trend{ position: relative; padding-right: 17px; }
+.trend:hover{ text-decoration: underline; color: #666; }
+.trend b{ background: url(../images/mt_bg7.png) no-repeat -72px 0; width: 10px; height: 13px; position: absolute; top: 2px; right: 4px; }
+
+.uname-box{ position: relative; margin: 8px 0 16px 0; }
+.pwd-box{ position: relative; }
+.username, .pwd{ width: 220px; height: 16px; line-height: 16px; font-size: 14px; padding: 9px 5px 9px 33px; border: 1px solid #aaa; }
+.uname-icon, .pwd-icon{ background: url(../images/mt_bg9.png) no-repeat;  position: absolute; top: 8px; left: 8px; }
+.uname-icon{ background-position: -1px -58px; width: 18px; height: 17px; }
+.pwd-icon{ background-position: -1px 0; width: 16px; height: 18px; }
+.login-item{ margin: 8px 0 18px 0; font-size: 12px; color: #333; }
+.remeber, .autologin{ margin: 4px 4px 0 0; }
+.autologin{ margin-left: 5px; }
+.forget{ color: #2bb8aa; }
+.forget:hover{ text-decoration: underline; }
+.no-regist{ margin: 20px 0 50px 0; color: #666; }
+.free-regist{ font-size: 14px; color: #2bb8aa; }
+.btn-login{ display: block; width: 260px; height: 36px; background: #2db7a9; border-bottom: 1px solid #0d7b71; border-radius: 2px; font: bold 14px/37px 'SimSun,Arial'; color: #fff; cursor: pointer; }
+.coop-site-box{ font-size: 12px; color: #999; }
+.coop-site-box p{ margin-bottom: 8px; }
+.coop-site li{ float: left; display: inline; margin-right: 10px; height: 26px; }
+.coop-site a{ display: block; background: url(../images/mt_bg8.png) no-repeat; padding-left: 23px; height: 16px; }
+.coop-site .qq{ background-position: 0 -221px; }
+.coop-site .payment{ background-position: 0 -21px; }
+.coop-site .weibo{ background-position: 0 -302px; }
+.coop-site .baidu{ background-position: 0 -62px; }
+.coop-site .safety{ background-position: 0 -181px; }
+
+.coop-site .qq:hover{ background-position: 0 -201px; }
+.coop-site .payment:hover{ background-position: 0 -1px; }
+.coop-site .weibo:hover{ background-position: 0 -282px; }
+.coop-site .baidu:hover{ background-position: 0 -42px; }
+.coop-site .safety:hover{ background-position: 0 -161px; }
+.coop-site .more{ background: none; padding-left: 0; position: relative; color: #2bb8aa; }
+.coop-site .triangle { right: -8px; top: 7px; border-top-color: #2bb8aa; }
+
+.footer .aboutinfo-box{ overflow: hidden; height: 14px; padding: 17px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin-top: 74px; }
+.aboutinfo-list{ margin-left: -16px; }
+.aboutinfo-list li{ display: inline; height: 16px; float: left; border-left: 1px solid #eee;  }
+.aboutinfo-list a{ margin: 0 17px 0 16px; color: #999; }
+.record-box{ margin-right: 110px; }
+.foot-copyright{ text-align: left; margin: 18px 0 30px 0; }

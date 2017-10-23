@@ -1,0 +1,3419 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>360影视-最新最全最受欢迎的影视网站-www.360kan.com</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width" />
+<meta name="copyright" content="http://www.imsole.net/" />
+<meta name="robots" content="all" />
+<meta name="distribution" content="global" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="stylesheet" href="skin/css/base.css" />
+<link rel="stylesheet" href="skin/css/index.css" />
+<base target="_blank" />
+<style>
+#slide li{display:none;}
+</style>
+<script>
+function findInArr(arr,n){
+	for(var i = 0; i<arr.length ; i++){
+		if(arr[i]==n){
+			return true;
+		}
+	}
+	return false;
+}
+
+function getByClass(oParent,sClass){
+	var aEle = oParent.getElementsByTagName("*");
+	var result = [];
+	for(var i = 0; i<aEle.length ; i++){
+		var tmp = aEle[i].className.split(" ");
+		if(findInArr(tmp,sClass)){
+			result.push(aEle[i]);
+		}
+	}
+	return result;
+}
+window.onload= function(){
+	//头部广告图片选项卡
+	(function(){
+		var ctlPoint = document.getElementById("ctl-point");
+		var aBtn = ctlPoint.children;
+		var oUl = document.getElementById("slide");
+		var aLi = oUl.children;
+		var oPrev =getByClass(document,"btn-prev")[0];
+		var oNext =getByClass(document,"btn-next")[0];
+		var oDiv = getByClass(document,"slide")[0];
+		var oTitleBox = getByClass(document,"ctl-alts")[0];
+		var aTitle = oTitleBox.children;
+		
+		var iNow = 0;
+		function tab(){
+			for(var i = 0 ; i<aBtn.length ;i++){
+				aBtn[i].className = ""
+				aLi[i].style.display = "none";
+				aTitle[i].style.display = "none";
+			}
+				aBtn[iNow].className = "now"
+				aLi[iNow].style.display = "block";
+				aTitle[iNow].style.display = "block";
+		}
+		function next(){
+			iNow++;
+			if(iNow == aBtn.length){
+				iNow = 0;
+			}
+			tab();
+		}
+		function prev(){
+			iNow--;
+			if(iNow == -1){
+				iNow = aBtn.length - 1;
+			}
+			tab();
+		}
+		
+		oPrev.onclick = function(){
+			prev();
+			return false;
+		};
+		oNext.onclick = next;
+		
+		var timer = setInterval(next,1000);
+		
+		oDiv.onmouseover = function(){
+			oPrev.style.display = "block";
+			oNext.style.display = "block";
+			clearInterval(timer);
+		};
+		oDiv.onmouseout = function(){
+			oPrev.style.display = "none";
+			oNext.style.display = "none";
+			timer = setInterval(next,1000);
+		};
+		
+		for(var i = 0 ; i<aBtn.length ;i++){
+			(function(index){
+				aBtn[i].onmouseover = function(){
+					iNow = index;
+					tab();
+				};
+			})(i);
+		}
+	})();
+	
+	
+	//广告图片右部选项卡
+	(function(){
+		//ran ranking-bd
+		var oRan = document.getElementById("ran");
+		var aBtn = oRan.children;
+		var oBox = getByClass(document,"ranking-bd")[0];
+		var aUl = oBox.children;
+		
+		for(var i = 0; i< aBtn.length;i++){
+			(function(index){
+				aBtn[i].onmouseover = function(){
+					for(var i = 0; i< aBtn.length;i++){
+						aBtn[i].className ="";
+						aUl[i].style.display = "none";
+					}
+					this.className = "now";
+					aUl[index].style.display = "block";
+				};
+			})(i);
+		}
+	})();	
+	
+};
+/*function findInArr(arr,n){
+	for(var i = 0; i < arr.length; i++){
+		
+		if(arr[i] == n){
+			return true;
+		}
+	}
+	return false;
+}
+
+function getByClass(oParent,sClass){
+	var ret = [];
+	
+	var aEle = oParent.getElementsByTagName("*");
+	
+	for(var i = 0; i < aEle.length; i++){
+		
+		var temp = aEle[i].className.split(" ");
+		
+		//判断
+		if(findInArr(temp,sClass)){
+			ret.push(aEle[i]);
+		}	
+	}
+	
+	
+	return ret;
+}
+
+window.onload = function(){
+	
+//选项卡公共方法
+function tab(aBtn,aWrap){
+	for(var i = 0; i < aBtn.length; i++){
+		(function(index){
+			aBtn[i].onmouseover = function(){
+				for(var i = 0; i < aBtn.length; i++){
+					aBtn[i].className = "";
+					aWrap[i].style.display = "none";
+				}
+				
+				this.className = "now";
+				aWrap[index].style.display = "block";
+			}
+		})(i);
+	}
+}
+	//焦点图
+	(function(){
+		//slide   ctl-point  btn-prev  btn-next
+		var oDiv = getByClass(document,"slide")[0];
+		var oUl = document.getElementById("slide");
+		var aLi = oUl.children;
+		var ctlPoint = document.getElementById("ctl-point");
+		var aBtn = ctlPoint.children;
+		var oBtnPrev = getByClass(document,"btn-prev")[0];
+		var oBtnNext = getByClass(document,"btn-next")[0];
+		
+		var iNow = 0;
+		for(var i = 0; i < aBtn.length; i++ ){
+			(function(index){
+				aBtn[i].onmouseover = function(){
+					iNow = index;
+					tab();
+				};
+			})(i);
+		}
+		
+		function tab(){
+			for(var i = 0; i < aBtn.length; i++ ){
+				aBtn[i].className = "";
+				aLi[i].style.display = "none";
+			}
+			
+			aBtn[iNow].className = "now";
+			aLi[iNow].style.display = "block";	
+		}
+		
+		var timer = setInterval(next,1000);
+		
+		oDiv.onmouseover = function(){
+			oBtnPrev.style.display = "block";
+			oBtnNext.style.display = "block";
+			clearInterval(timer);
+		};
+		
+		oDiv.onmouseout = function(){
+			oBtnPrev.style.display = "none";
+			oBtnNext.style.display = "none";
+			timer = setInterval(next,1000);
+				
+		};
+		
+		function prev(){
+			iNow--;
+			if(iNow == -1){
+				iNow = aBtn.length - 1;
+			}
+			tab();	
+		}
+		
+		function next(){
+			iNow++;
+			if(iNow == aBtn.length){
+				iNow = 0;
+			}
+			tab();	
+		}
+	})();
+	
+	//内容选项卡
+	(function(){
+		// hot  opear movie variety
+		//var arrClass = ["hot","opear","movie","variety"];
+		var aLayout = getByClass(document,"layout");
+		
+		for(var i = 0; i < aLayout.length; i++){
+			tabSwitch(aLayout[i])
+		}
+		
+		function tabSwitch(oLayout){
+			
+			var oItem =  getByClass(oLayout,"item")[0];
+			var oBox  =  getByClass(oLayout,"box-bd")[0];
+			//console.log(oItem);
+			if(!oItem){
+				return;
+			}
+			
+			var aBtn = oItem.children;
+			var aUl  = oBox.getElementsByTagName("ul");
+			
+			tab(aBtn,aUl);
+		}
+
+	})();
+		
+};*/
+
+</script>
+
+</head>
+
+<body>
+<!-- header -->
+<header class="header">
+	<!-- topview -->
+	<div class="layout top-view">
+		<!-- logo -->
+		<h1 class="logo"><a href="javascript:;"><img src="skin/img/logo.gif" alt="" /></a></h1>
+		<!-- search -->
+		<form action="" class="search">
+			<input type="text" class="key" placeholder="爸爸去哪儿了2" /><input type="submit" class="sbt" value="搜索" />
+			<a href="javascript:;">我的影视</a> | <a href="javascript:;" class="history" id="history">观看记录<i></i></a>
+			<!-- history-list -->
+			<div id="history-list" class="history-list">
+				<p class="list-hd"></p>
+				<div class="list-bd">
+					<!--
+					<ul>
+						<li><a href="javascript:;">相爱十年</a><span>电影</span><span class="btn-remove"></span></li>
+						<li><a href="javascript:;">魔警</a><span>电影</span><span class="btn-remove"></span></li>
+						<li><a href="javascript:;">大闹天宫</a><span>电影</span><span class="btn-remove"></span></li>
+					</ul>
+					<p class="clear-history"><a href="javascript:;" id="clear-history">清空记录</a></p>
+					 -->
+					<p class="no-history">无观看记录</p>
+				</div>
+				<p class="list-ft"></p>
+			</div>
+		</form>
+		<!-- activity -->
+		<div class="activity">
+			<a href="javascript:;"><img src="skin/img/ad.png" alt="" /></a>
+		</div>
+	</div>
+	<!-- nav -->
+	<nav class="nav">
+		<div class="layout clear">
+			<ul id="box" class="main-nav">
+				<li><a href="javascript:;"><span>首页</span></a></li>
+				<li><a href="javascript:;"><span>电影</span></a></li>
+				<li ><a href="javascript:;"><span>电视剧</span></a></li>
+				<li><a href="javascript:;"><span>综艺</span></a></li>
+				<li><a href="javascript:;"><span>动漫</span></a></li>
+				<li><a href="javascript:;"><span>资讯</span></a></li>
+				<li><a href="javascript:;"><span>娱乐</span></a></li>
+				<li class="now"><a href="javascript:;"><span>娱乐</span></a></li>
+				<li><a href="javascript:;"><span>专题</span></a></li>
+			</ul>
+			<ul class="sub-nav">
+				<li><a href="javascript:;"><span>世界杯</span></a><i></i></li>
+				<li><a href="javascript:;"><span>音乐</span></a></li>
+				<li><a href="javascript:;"><span>搞笑</span></a></li>
+				<li><a href="javascript:;"><span>游戏</span></a></li>
+				<li><a href="javascript:;"><span>影视网址</span></a></li>
+				<li><a href="javascript:;"><span>APP下载</span></a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<!-- slide-area -->
+<div class="layout mt10 slide-area">
+	<!-- slide -->
+	<div class="slide">
+		<!-- imgs -->
+		<ul id="slide">
+			<li style="display:block;"><a href="javascript:;"><img src="http://p7.qhimg.com/t01de5f5086c1c468c6.jpg" alt="" /></a></li>
+			<li><a href="javascript:;"><img src="http://p0.qhimg.com/t019ab70c2abaaa21a8.jpg" alt="" /></a></li>
+			<li><a href="javascript:;"><img src="http://p1.qhimg.com/t012161bd0925749594.jpg" alt="" /></a></li>
+			<li><a href="javascript:;"><img src="http://p8.qhimg.com/t0140e7eb5562905407.jpg" alt="" /></a></li>
+			<li><a href="javascript:;"><img src="skin/img/d_1.jpg" alt="" /></a></li>
+		</ul>
+		<div class="control">
+			<!-- 背景 -->
+			<i class="ctl-bg"></i>
+			<div class="ctl-bd">
+				<!-- 点击按钮 -->
+				<a href="javascript:;" class="btn-play" id="btn-play"></a>
+				<!-- 标题 -->
+				<div class="ctl-alts">
+					<a href="javascript:;"><strong>《爸爸去哪儿2》</strong>第二期：曹格儿女爆发激烈冲突</a>
+					<a href="javascript:;"><strong>《2014世界杯》</strong>8分钟浓缩小组赛 悲欢哭泣这就是足球</a>
+					<a href="javascript:;"><strong>《爸爸回来了》</strong>贾乃亮吓哭甜心遭嫌弃 李小璐奥莉妈飙英文</a>
+					<a href="javascript:;"><strong>《相爱十年》</strong>电视版《合伙人》 邓超董洁王大治致敬毕业季</a>
+					<a href="javascript:;"><strong>《小善大爱》</strong>周鸿祎化身“慈善侠士”助力平民英雄</a>
+				</div>
+				<!-- 控制点 -->
+				<div id="ctl-point" class="ctl-point">
+					<a class="now"></a><a></a><a></a><a></a><a></a>
+				</div>
+			</div>
+		</div>
+		<!-- 上一张+下一张 -->
+		<a href="javascript:;" class="btn-prev"></a>
+		<a href="javascript:;" class="btn-next"></a>
+	</div>
+	<!-- ranking -->
+	<div class="ranking">
+		<div id="ran" class="ranking-hd">
+			<a href="javascript:;" class="now">热榜<i></i></a>
+			<a href="javascript:;">电影<i></i></a>
+			<a href="javascript:;">电视剧<i></i></a>
+			<a href="javascript:;">动漫<i></i></a>
+			<a href="javascript:;">综艺<i></i></a>
+		</div>
+		<div class="ranking-bd">
+			<ul style="display:block;">
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">1</span>
+						<span class="title">热榜相爱十年</span>
+						<span class="grade red"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">2</span>
+						<span class="title">一有二分之一的夏</span>
+						<span class="grade yellow"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">3</span>
+						<span class="title">魔警</span>
+						<span class="grade red"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">4</span>
+						<span class="title">我的麦霸女友</span>
+						<span class="grade yellow"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">5</span>
+						<span class="title">恋恋不忘</span>
+						<span class="grade red"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">6</span>
+						<span class="title">幸福从天而降</span>
+						<span class="grade yellow"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">7</span>
+						<span class="title">七小罗汉</span>
+						<span class="grade red"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">8</span>
+						<span class="title">甜蜜杀机</span>
+						<span class="grade yellow"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">9</span>
+						<span class="title">爸爸回来勒</span>
+						<span class="grade red"></span>
+						<span class="type">综艺</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">10</span>
+						<span class="title">巨神战机队</span>
+						<span class="grade yellow"></span>
+						<span class="type">动漫</span>
+					</a>
+				</li>
+			</ul>
+			<ul>
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">1</span>
+						<span class="title">电影相爱十年</span>
+						<span class="grade red"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">2</span>
+						<span class="title">一有二分之一的夏</span>
+						<span class="grade yellow"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">3</span>
+						<span class="title">魔警</span>
+						<span class="grade red"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">4</span>
+						<span class="title">我的麦霸女友</span>
+						<span class="grade yellow"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">5</span>
+						<span class="title">恋恋不忘</span>
+						<span class="grade red"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">6</span>
+						<span class="title">幸福从天而降</span>
+						<span class="grade yellow"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">7</span>
+						<span class="title">七小罗汉</span>
+						<span class="grade red"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">8</span>
+						<span class="title">甜蜜杀机</span>
+						<span class="grade yellow"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">9</span>
+						<span class="title">爸爸回来勒</span>
+						<span class="grade red"></span>
+						<span class="type">综艺</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">10</span>
+						<span class="title">巨神战机队</span>
+						<span class="grade yellow"></span>
+						<span class="type">动漫</span>
+					</a>
+				</li>
+			</ul>
+			<ul>
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">1</span>
+						<span class="title">电视剧相爱十年</span>
+						<span class="grade red"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">2</span>
+						<span class="title">一有二分之一的夏</span>
+						<span class="grade yellow"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">3</span>
+						<span class="title">魔警</span>
+						<span class="grade red"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">4</span>
+						<span class="title">我的麦霸女友</span>
+						<span class="grade yellow"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">5</span>
+						<span class="title">恋恋不忘</span>
+						<span class="grade red"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">6</span>
+						<span class="title">幸福从天而降</span>
+						<span class="grade yellow"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">7</span>
+						<span class="title">七小罗汉</span>
+						<span class="grade red"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">8</span>
+						<span class="title">甜蜜杀机</span>
+						<span class="grade yellow"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">9</span>
+						<span class="title">爸爸回来勒</span>
+						<span class="grade red"></span>
+						<span class="type">综艺</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">10</span>
+						<span class="title">巨神战机队</span>
+						<span class="grade yellow"></span>
+						<span class="type">动漫</span>
+					</a>
+				</li>
+			</ul>
+			<ul>
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">1</span>
+						<span class="title">动漫相爱十年</span>
+						<span class="grade red"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">2</span>
+						<span class="title">一有二分之一的夏</span>
+						<span class="grade yellow"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">3</span>
+						<span class="title">魔警</span>
+						<span class="grade red"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">4</span>
+						<span class="title">我的麦霸女友</span>
+						<span class="grade yellow"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">5</span>
+						<span class="title">恋恋不忘</span>
+						<span class="grade red"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">6</span>
+						<span class="title">幸福从天而降</span>
+						<span class="grade yellow"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">7</span>
+						<span class="title">七小罗汉</span>
+						<span class="grade red"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">8</span>
+						<span class="title">甜蜜杀机</span>
+						<span class="grade yellow"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">9</span>
+						<span class="title">爸爸回来勒</span>
+						<span class="grade red"></span>
+						<span class="type">综艺</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">10</span>
+						<span class="title">巨神战机队</span>
+						<span class="grade yellow"></span>
+						<span class="type">动漫</span>
+					</a>
+				</li>
+			</ul>
+			<ul>
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">1</span>
+						<span class="title">综艺相爱十年</span>
+						<span class="grade red"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">2</span>
+						<span class="title">一有二分之一的夏</span>
+						<span class="grade yellow"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li class="top-three">
+					<a href="javascript:;">
+						<span class="index">3</span>
+						<span class="title">魔警</span>
+						<span class="grade red"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">4</span>
+						<span class="title">我的麦霸女友</span>
+						<span class="grade yellow"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">5</span>
+						<span class="title">恋恋不忘</span>
+						<span class="grade red"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">6</span>
+						<span class="title">幸福从天而降</span>
+						<span class="grade yellow"></span>
+						<span class="type">电视剧</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">7</span>
+						<span class="title">七小罗汉</span>
+						<span class="grade red"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">8</span>
+						<span class="title">甜蜜杀机</span>
+						<span class="grade yellow"></span>
+						<span class="type">电影</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">9</span>
+						<span class="title">爸爸回来勒</span>
+						<span class="grade red"></span>
+						<span class="type">综艺</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<span class="index">10</span>
+						<span class="title">巨神战机队</span>
+						<span class="grade yellow"></span>
+						<span class="type">动漫</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!-- world-cup:世界杯 -->
+<div class="layout world-cup mt20">
+	<!-- box-title -->
+	<h2 class="box-title">
+		<i></i><em>世界杯</em><a href="javascript:;" class="more"></a>
+	</h2>
+	<!-- box-bd -->
+	<div class="box-bd">
+		<ul class="box-list mt20">
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_2.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">《战无不胜》致敬塞萨尔</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_3.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">盘点世界杯五大点球大战</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_4.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">塞萨尔国家队五大生死时刻</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_5.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">英雄!内马尔罚入制胜点球</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_6.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">路易斯抢点破门打破僵局</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_7.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">桑切斯神勇建功完爆内马尔</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<!-- hot：热门 -->
+<div class="layout hot mt45">
+	<!-- box-title -->
+	<h2 class="box-title">
+		<i></i><em><a href="javascript:;">今日热门</a></em>
+		<!-- item -->
+		<div class="item"><a href="javascript:;" class="now">热门</a><a href="javascript:;">美女</a></div>
+		<!-- rmd-hot -->
+		<div class="rmd-hot">
+			<a href="javascript:;">美女陪你玩转世界杯</a> | <a href="javascript:;">黄奕出轨香港密会富商</a>
+		</div>
+	</h2>
+	<!-- box-bd -->
+	<div class="box-bd">
+		<ul class="box-list mt20">
+			<li class="first">
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_8.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt"><span></span>《战无不胜》致敬塞萨尔</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_9.jpg" alt="" />
+					<i class="bg"></i><i class="mask"></i><i class="play"></i>
+					<span class="txt">《小善大爱》:关爱抗战老兵</span>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_10.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">日屠鲸邀学生围观宰杀过程</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_11.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">男子背部插刀淡定打电话</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_12.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">文章30岁生日马伊琍献吻</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_13.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">实拍女生集体离奇昏倒现场</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_14.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">桑切斯神勇建功完爆内马尔</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_15.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">桑切斯神勇建功完爆内马尔</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_16.jpg" alt="" />
+					<i class="bg"></i><i class="mask"></i><i class="play"></i>
+					<span class="txt">桑切斯神勇建功完爆内马尔</span>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_17.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">桑切斯神勇建功完爆内马尔</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_18.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">桑切斯神勇建功完爆内马尔</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_19.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">桑切斯神勇建功完爆内马尔</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_20.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">桑切斯神勇建功完爆内马尔</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_21.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">桑切斯神勇建功完爆内马尔</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="opa">
+					<img src="skin/img/d_22.jpg" alt="" />
+					<i class="bg"></i>
+					<span class="txt">桑切斯神勇建功完爆内马尔</span>
+					<i class="mask"></i><i class="play"></i>
+				</a>
+			</li>
+		</ul>
+		<ul class="box-list mt20">
+				<li class="first">
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_23.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt"><span></span>《战无不胜》致敬塞萨尔</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_24.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">《小善大爱》:关爱抗战老兵</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_25.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">日屠鲸邀学生围观宰杀过程</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_26.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">男子背部插刀淡定打电话</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_27.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">文章30岁生日马伊琍献吻</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_28.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">实拍女生集体离奇昏倒现场</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_29.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">桑切斯神勇建功完爆内马尔</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_30.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">桑切斯神勇建功完爆内马尔</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_31.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">桑切斯神勇建功完爆内马尔</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_32.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">桑切斯神勇建功完爆内马尔</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_33.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">桑切斯神勇建功完爆内马尔</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_34.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">桑切斯神勇建功完爆内马尔</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_35.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">桑切斯神勇建功完爆内马尔</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_36.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">桑切斯神勇建功完爆内马尔</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_37.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">桑切斯神勇建功完爆内马尔</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+				</li>
+			</ul>
+	</div>
+</div>
+
+<!-- opear：电视剧，肥皂剧 -->
+<div class="layout opear grid2 mt45">
+	<!-- box-bd -->
+	<div class="box-bd">
+		<!-- box-title -->
+		<h2 class="box-title">
+			<i></i><em><a href="javascript:;">电视剧</a></em>
+			<!-- item -->
+			<div class="item">
+				<a href="javascript:;" class="now">最热</a>
+				<a href="javascript:;">最新</a>
+				<a href="javascript:;">内地</a>
+				<a href="javascript:;">港台</a>
+				<a href="javascript:;">韩剧</a>
+				<a href="javascript:;">美剧</a>
+				<a href="javascript:;">泰剧</a>
+			</div>
+			<!-- more -->
+			<a href="javascript:;" class="more">更多</a>
+		</h2>
+		<!-- box-con -->
+		<div class="box-con">
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_38.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至9集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">相爱十年</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_39.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至21集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_40.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至23集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至72集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至38集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_43.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至14集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_44.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至45集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_46.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至19集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_38.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至9集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">相爱十年</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_39.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至21集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_40.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至23集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至72集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至38集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_43.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至14集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_44.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至45集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_46.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至19集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至9集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">相爱十年</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至21集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至23集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至72集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至38集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_43.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至14集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_44.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至45集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_46.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至19集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_38.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至9集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">相爱十年</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_39.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至21集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_40.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至23集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至72集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至38集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_43.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至14集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_44.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至45集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_46.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至19集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至9集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">相爱十年</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至21集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至23集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至72集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至38集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_43.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至14集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_44.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至45集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_46.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至19集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_38.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至9集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">相爱十年</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_39.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至21集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_40.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至23集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至72集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至38集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_43.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至14集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_44.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至45集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_46.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至19集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至9集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">相爱十年</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至21集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至23集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至72集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至38集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_43.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至14集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_44.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至45集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_46.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至19集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+		</div>
+		<!-- box-ft -->
+		<div class="box-ft">
+			<a href="javascript:;">传奇英雄<span>(全40集)</span></a>
+			<a href="javascript:;">产科男医生<span>(全40集)</span></a>
+			<a href="javascript:;">纸婚<span>(全26集)</span></a>
+			<a href="javascript:;">点金胜手<span>(至16集)</span></a>
+			<a href="javascript:;">婚里婚外那些事<span>(全30集)</span></a>
+			<a href="javascript:;">神枪之倒刺<span>(全40集)</span></a>
+			<a href="javascript:;">Doctor异乡人<span>(至16集)</span></a>
+			<a href="javascript:;">我在北京，挺好的<span>(全37集)</span></a>
+			<a href="javascript:;">涛女郎<span>(全52集)</span></a>
+			<a href="javascript:;">金玉良缘<span>(全45集)</span></a>
+		</div>
+	</div>
+	<!-- box-aside -->
+	<div class="box-aside">
+		<!-- hit-list 热播榜 -->
+		<div class="hit-ranking">
+			<!-- hit-item -->
+			<h3 class="aside-hd aside-hd-bg">
+				<em>热播榜</em>
+				<div class="item" id="hit-item">
+					<a href="javascript:;" class="now">全部</a>
+					<a href="javascript:;">韩剧</a>
+					<a href="javascript:;">美剧</a>
+					<a href="javascript:;">港剧</a>
+				</div>
+			</h3>
+			<!-- hit-bd -->
+			<div class="hit-bd">
+				<div class="hit-list">
+					<ol>
+						<li><i class="top-three">1</i><a href="javascript:;">相爱十年</a></li>
+						<li><i class="top-three">2</i><a href="javascript:;">一又二分之一</a></li>
+						<li><i class="top-three">3</i><a href="javascript:;">恋恋不忘</a></li>
+						<li><i>4</i><a href="javascript:;">犀利仁师</a></li>
+						<li><i>5</i><a href="javascript:;">幸福从天而降</a></li>
+					</ol>
+					<ol>
+						<li><i>6</i><a href="javascript:;">幸福爱人</a></li>
+						<li><i>7</i><a href="javascript:;">刀客家族的女友</a></li>
+						<li><i>8</i><a href="javascript:;">勇士之城</a></li>
+						<li><i>9</i><a href="javascript:;">涛女郎</a></li>
+						<li><i>10</i><a href="javascript:;">金站</a></li>
+					</ol>
+				</div>
+				<div class="hit-list">
+					<ol>
+						<li><i class="top-three">1</i><a href="javascript:;">Doctor异乡人</a></li>
+						<li><i class="top-three">2</i><a href="javascript:;">你们被包围了</a></li>
+						<li><i class="top-three">3</i><a href="javascript:;">密会</a></li>
+						<li><i>4</i><a href="javascript:;">Three Days</a></li>
+						<li><i>5</i><a href="javascript:;">真是好时节</a></li>
+					</ol>
+					<ol>
+						<li><i>6</i><a href="javascript:;">密会</a></li>
+						<li><i>7</i><a href="javascript:;">来自星星的你</a></li>
+						<li><i>8</i><a href="javascript:;">继承者们</a></li>
+						<li><i>9</i><a href="javascript:;">未来的选择</a></li>
+						<li><i>10</i><a href="javascript:;">黄金彩虹</a></li>
+					</ol>
+				</div>
+				<div class="hit-list">
+					<ol>
+						<li><i class="top-three">1</i><a href="javascript:;">纸牌屋第二季</a></li>
+						<li><i class="top-three">2</i><a href="javascript:;">性爱大师1</a></li>
+						<li><i class="top-three">3</i><a href="javascript:;">破产姐妹3</a></li>
+						<li><i>4</i><a href="javascript:;">吸血鬼日记5</a></li>
+						<li><i>5</i><a href="javascript:;">生活大爆炸7</a></li>
+					</ol>
+					<ol>
+						<li><i>6</i><a href="javascript:;">神盾局特工1</a></li>
+						<li><i>7</i><a href="javascript:;">初代吸血鬼1</a></li>
+						<li><i>8</i><a href="javascript:;">行尸走肉4</a></li>
+						<li><i>9</i><a href="javascript:;">绿箭侠2</a></li>
+						<li><i>10</i><a href="javascript:;">绝命毒师5</a></li>
+					</ol>
+				</div>
+				<div class="hit-list">
+					<ol>
+						<li><i class="top-three">1</i><a href="javascript:;">点金胜手</a></li>
+						<li><i class="top-three">2</i><a href="javascript:;">女人俱乐部</a></li>
+						<li><i class="top-three">3</i><a href="javascript:;">叛逃</a></li>
+						<li><i>4</i><a href="javascript:;">爱我请留言</a></li>
+						<li><i>5</i><a href="javascript:;">食为奴</a></li>
+					</ol>
+					<ol>
+						<li><i>6</i><a href="javascript:;">守业者</a></li>
+						<li><i>7</i><a href="javascript:;">新抱喜相逢</a></li>
+						<li><i>8</i><a href="javascript:;">单恋双城</a></li>
+						<li><i>9</i><a href="javascript:;">My盛Lady</a></li>
+						<li><i>10</i><a href="javascript:;">猫屎妈妈</a></li>
+					</ol>
+				</div>
+			</div>
+		</div>
+
+		<!-- opear-type -->
+		<div class="opear-type">
+			<a href="javascript:;">言情</a>
+			<a href="javascript:;" class="red">伦理</a>
+			<a href="javascript:;">喜剧</a>
+			<a href="javascript:;">悬疑</a>
+			<a href="javascript:;">都市</a>
+			<a href="javascript:;">内地</a>
+			<a href="javascript:;">香港</a>
+			<a href="javascript:;">台湾</a>
+			<a href="javascript:;" class="red">韩国</a>
+			<a href="javascript:;">美国</a>
+			<a href="javascript:;">2014</a>
+			<a href="javascript:;" class="red">2013</a>
+			<a href="javascript:;">2012</a>
+			<a href="javascript:;">2011</a>
+			<a href="javascript:;" class="now">全部</a>
+		</div>
+
+		<!-- hot-tv -->
+		<div class="hot-tv mt10">
+			<h3 class="aside-hd"><em>卫视热播</em></h3>
+			<div class="hot-tv-bd">
+				<ul class="first">
+					<li class="now"><a href="javascript:;"><img src="skin/img/hntv.png" />湖南卫视</a></li>
+					<li><a href="javascript:;"><img src="skin/img/dftv.png" /></i>东方卫视</a></li>
+					<li><a href="javascript:;"><img src="skin/img/jstv.png" /></i>江苏卫视</a></li>
+					<li><a href="javascript:;"><img src="skin/img/ahtv.png" /></i>安徽卫视</a></li>
+				</ul>
+				<ul>
+					<li><a href="javascript:;">幸福爱人</a>(全58集)</li>
+					<li><a href="javascript:;">如果我爱你</a>(全34集)</li>
+					<li><a href="javascript:;">宫锁连城</a>(全63集)</li>
+					<li><a href="javascript:;">妻子的秘密</a>(全55集)</li>
+				</ul>
+				<ul>
+					<li><a href="javascript:;">犀利仁师</a>(全45集)</li>
+					<li><a href="javascript:;">大当家</a>(全55集)</li>
+					<li><a href="javascript:;">我爱男闺蜜</a>(全34集)</li>
+					<li><a href="javascript:;">一仆二主</a>(全43集)</li>
+				</ul>
+				<ul>
+					<li><a href="javascript:;">涛女郎</a>(全52集)</li>
+					<li><a href="javascript:;">生活启示录</a>(全35集)</li>
+					<li><a href="javascript:;">产科男医生</a>(全40集)</li>
+					<li><a href="javascript:;">金玉良缘</a>(全45集)</li>
+				</ul>
+				<ul>
+					<li><a href="javascript:;">幸福从天而降</a>(全60集)</li>
+					<li><a href="javascript:;">虎刺红</a>(全42集)</li>
+					<li><a href="javascript:;">望海的女人</a>(全40集)</li>
+					<li><a href="javascript:;">我的儿子是奇葩</a>(全35集)</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- aside-ad -->
+		<div class="aside-ad">
+			<a href="javascript:;"><img src="skin/img/d_47.jpg" alt="" /></a>
+		</div>
+	</div>
+</div>
+
+<!-- movie：电影 -->
+<div class="layout movie grid2 mt45">
+	<!-- box-bd -->
+	<div class="box-bd">
+		<!-- box-title -->
+		<h2 class="box-title">
+			<i></i><em><a href="javascript:;">电影</a></em>
+			<!-- item -->
+			<div class="item">
+				<a href="javascript:;" class="now">最热</a>
+				<a href="javascript:;">欧美</a>
+				<a href="javascript:;">动作</a>
+				<a href="javascript:;">喜剧</a>
+				<a href="javascript:;">战争</a>
+				<a href="javascript:;">恐怖</a>
+				<a href="javascript:;">伦理</a>
+			</div>
+			<!-- more -->
+			<a href="javascript:;" class="more">更多</a>
+		</h2>
+		<!-- box-con -->
+		<div class="box-con">
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_48.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">相爱十年</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_49.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_50.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_51.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_52.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_53.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_54.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_55.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_56.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_57.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至9集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">相爱十年</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至21集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至23集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至72集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至38集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_43.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至14集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_44.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至45集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_46.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至19集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+            <ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_48.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">相爱十年</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_49.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_50.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_51.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_52.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_53.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_54.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_55.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_56.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_57.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至9集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">相爱十年</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至21集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至23集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至72集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至38集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_43.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至14集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_44.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至45集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_46.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至19集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+            <ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_48.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">相爱十年</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_49.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_50.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_51.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_52.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_53.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_54.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_55.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_56.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_57.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至9集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">相爱十年</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至21集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至23集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至72集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至38集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_43.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至14集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_44.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至45集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_46.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至19集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_48.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">相爱十年</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_49.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_50.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_51.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_52.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_53.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_54.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_55.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_56.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_57.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">高清</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="yellow"><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+		</div>
+		<!-- movie-special -->
+		<div class="movie-special">
+			<h3><em>电影专题</em></h3>
+			<!-- figure-list -->
+			<ul class="box-list figure-list">
+				<li>
+					<a href="" class="opa">
+						<img src="skin/img/d_58.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">914人顶</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">被影坛大哥逼疯的女神</a></h4>
+				</li>
+				<li>
+					<a href="" class="opa">
+						<img src="skin/img/d_59.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">534人顶</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">没有最烂片，只有更烂</a></h4>
+				</li>
+				<li>
+					<a href="" class="opa">
+						<img src="skin/img/d_60.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">984人顶</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">历年经典贺岁大片</a></h4>
+				</li>
+				<li>
+					<a href="" class="opa">
+						<img src="skin/img/d_61.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">1364人顶</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">色易守 情难防</a></h4>
+				</li>
+				<li>
+					<a href="" class="opa">
+						<img src="skin/img/d_62.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">394人顶</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">香港警匪片中的男神</a></h4>
+				</li>
+			</ul>
+			<!-- txt-list -->
+			<ul class="txt-list">
+				<li class="item1"><a href="javascript:;">文艺女王的必修课<span>(587人顶)</span></a></li>
+				<li class="item2"><a href="javascript:;">银幕最红奶爸大PK<span>(111人顶)</span></a></li>
+				<li class="item3"><a href="javascript:;">深层次解读伦理影片<span>(692人顶)</span></a></li>
+				<li class="item4"><a href="javascript:;">性感干练美女特工<span>(276人顶)</span></a></li>
+				<li class="item5"><a href="javascript:;">内地票房总排行榜<span>(827人顶)</span></a></li>
+				<li class="item6"><a href="javascript:;">让你笑开怀—喜剧电影<span>(169人顶)</span></a></li>
+				<li class="item7"><a href="javascript:;">华语高分电影合辑<span>(543人顶)</span></a></li>
+				<li class="item8"><a href="javascript:;">屌丝的世界你不懂<span>(599人顶)</span></a></li>
+				<li class="item9"><a href="javascript:;">韩国电影中的爱欲情仇<span>(546人顶)</span></a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- box-aside -->
+	<div class="box-aside">
+		<!-- hot-movie 院线热映 -->
+		<div class="hot-movie">
+			<!-- hit-item -->
+			<h3 class="aside-hd aside-hd-bg"><em>院线热映</em></h3>
+			<!-- figure-list -->
+			<ul class="figure-list mt20">
+				<li>
+					<a href="" class="opa">
+						<img src="skin/img/d_63.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">正在热映</span>
+					</a>
+					<h4><a href="javascript:;">哥斯拉</a><span class="grade red">7.1分</span></h4>
+					<p>亚伦·泰勒-约翰逊</p>
+					<p>超级怪兽的美国梦</p>
+				</li>
+				<li>
+					<a href="" class="opa">
+						<img src="skin/img/d_64.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">正在热映</span>
+					</a>
+					<h4><a href="javascript:;">沉睡魔咒</a><span class="grade red">7.7分</span></h4>
+					<p>安吉丽娜·朱莉</p>
+					<p>魔女亦有爱</p>
+				</li>
+				<li>
+					<a href="" class="opa">
+						<img src="skin/img/d_65.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">正在热映</span>
+					</a>
+					<h4><a href="javascript:;">明日边缘</a><span class="grade red">8.2分</span></h4>
+					<p>汤姆克鲁斯</p>
+					<p>阿汤哥变受虐狂</p>
+				</li>
+				<li>
+					<a href="" class="opa">
+						<img src="skin/img/d_66.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">正在热映</span>
+					</a>
+					<h4><a href="javascript:;">窃听风云3</a><span class="grade red">8.4分</span></h4>
+					<p>吴彦祖 刘青云</p>
+					<p>一次伟大的复仇</p>
+				</li>
+			</ul>
+		</div>
+
+		<!-- movie-type -->
+		<div class="opear-type movie-type">
+			<h3 class="aside-hd aside-bt"><em>电影分类</em></h3>
+			<a href="javascript:;">喜剧</a>
+			<a href="javascript:;">爱情</a>
+			<a href="javascript:;" class="green">动作</a>
+			<a href="javascript:;">恐怖</a>
+			<a href="javascript:;" class="green">科幻</a>
+			<a href="javascript:;">剧情</a>
+			<a href="javascript:;">犯罪</a>
+			<a href="javascript:;">奇幻</a>
+			<a href="javascript:;">战争</a>
+			<a href="javascript:;">悬疑</a>
+			<a href="javascript:;">惊悚</a>
+			<a href="javascript:;">动画</a>
+			<a href="javascript:;">文艺</a>
+			<a href="javascript:;" class="red">伦理</a>
+			<a href="javascript:;">纪录</a>
+			<a href="javascript:;">日本</a>
+			<a href="javascript:;">美国</a>
+			<a href="javascript:;">大陆</a>
+			<a href="javascript:;">香港</a>
+			<a href="javascript:;">韩国</a>
+			<a href="javascript:;">2013</a>
+			<a href="javascript:;">2012</a>
+			<a href="javascript:;">2011</a>
+			<a href="javascript:;">2010</a>
+			<a href="javascript:;" class="now">全部</a>
+		</div>
+
+		<!-- movie-ranking -->
+		<div class="movie-ranking">
+			<h3 class="aside-hd aside-bt">
+				<em>排行榜</em>
+				<div class="item" id="hit-item">
+					<a href="javascript:;" class="now">全部</a>
+					<a href="javascript:;">华语</a>
+					<a href="javascript:;">欧美</a>
+					<a href="javascript:;">日韩</a>
+				</div>
+			</h3>
+			<div class="hit-bd ranking-list">
+				<div class="hit-list">
+					<ol>
+						<li><i class="top-three">1</i><a href="javascript:;">全部相爱十年</a></li>
+						<li><i class="top-three">2</i><a href="javascript:;">一又二分之一</a></li>
+						<li><i class="top-three">3</i><a href="javascript:;">恋恋不忘</a></li>
+						<li><i>4</i><a href="javascript:;">犀利仁师</a></li>
+						<li><i>5</i><a href="javascript:;">幸福从天而降</a></li>
+					</ol>
+					<ol>
+						<li><i>6</i><a href="javascript:;">幸福爱人</a></li>
+						<li><i>7</i><a href="javascript:;">刀客家族的女友</a></li>
+						<li><i>8</i><a href="javascript:;">勇士之城</a></li>
+						<li><i>9</i><a href="javascript:;">涛女郎</a></li>
+						<li><i>10</i><a href="javascript:;">金站</a></li>
+					</ol>
+				</div>
+				<div class="hit-list">
+					<ol>
+						<li><i class="top-three">1</i><a href="javascript:;">华语相爱十年</a></li>
+						<li><i class="top-three">2</i><a href="javascript:;">一又二分之一</a></li>
+						<li><i class="top-three">3</i><a href="javascript:;">恋恋不忘</a></li>
+						<li><i>4</i><a href="javascript:;">犀利仁师</a></li>
+						<li><i>5</i><a href="javascript:;">幸福从天而降</a></li>
+					</ol>
+					<ol>
+						<li><i>6</i><a href="javascript:;">幸福爱人</a></li>
+						<li><i>7</i><a href="javascript:;">刀客家族的女友</a></li>
+						<li><i>8</i><a href="javascript:;">勇士之城</a></li>
+						<li><i>9</i><a href="javascript:;">涛女郎</a></li>
+						<li><i>10</i><a href="javascript:;">金站</a></li>
+					</ol>
+				</div>
+				<div class="hit-list">
+					<ol>
+						<li><i class="top-three">1</i><a href="javascript:;">欧美相爱十年</a></li>
+						<li><i class="top-three">2</i><a href="javascript:;">一又二分之一</a></li>
+						<li><i class="top-three">3</i><a href="javascript:;">恋恋不忘</a></li>
+						<li><i>4</i><a href="javascript:;">犀利仁师</a></li>
+						<li><i>5</i><a href="javascript:;">幸福从天而降</a></li>
+					</ol>
+					<ol>
+						<li><i>6</i><a href="javascript:;">幸福爱人</a></li>
+						<li><i>7</i><a href="javascript:;">刀客家族的女友</a></li>
+						<li><i>8</i><a href="javascript:;">勇士之城</a></li>
+						<li><i>9</i><a href="javascript:;">涛女郎</a></li>
+						<li><i>10</i><a href="javascript:;">金站</a></li>
+					</ol>
+				</div>
+				<div class="hit-list">
+					<ol>
+						<li><i class="top-three">1</i><a href="javascript:;">日韩相爱十年</a></li>
+						<li><i class="top-three">2</i><a href="javascript:;">一又二分之一</a></li>
+						<li><i class="top-three">3</i><a href="javascript:;">恋恋不忘</a></li>
+						<li><i>4</i><a href="javascript:;">犀利仁师</a></li>
+						<li><i>5</i><a href="javascript:;">幸福从天而降</a></li>
+					</ol>
+					<ol>
+						<li><i>6</i><a href="javascript:;">幸福爱人</a></li>
+						<li><i>7</i><a href="javascript:;">刀客家族的女友</a></li>
+						<li><i>8</i><a href="javascript:;">勇士之城</a></li>
+						<li><i>9</i><a href="javascript:;">涛女郎</a></li>
+						<li><i>10</i><a href="javascript:;">金站</a></li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ad -->
+<div class="layout ad mt45">
+	<a href="javascript:;"><img src="skin/img/d_147.jpg" alt="" /></a>
+</div>
+
+<!-- variety：综艺 -->
+<div class="layout variety grid2 mt45">
+	<!-- box-bd -->
+	<div class="box-bd">
+		<!-- box-title -->
+		<h2 class="box-title">
+			<i></i><em><a href="javascript:;">综艺</a></em>
+			<!-- item -->
+			<div class="item">
+				<a href="javascript:;" class="now">最热</a>
+				<a href="javascript:;">选秀</a>
+				<a href="javascript:;">真人秀</a>
+				<a href="javascript:;">访谈</a>
+			</div>
+			<!-- more -->
+			<a href="javascript:;" class="more">更多</a>
+		</h2>
+		<!-- box-con -->
+		<div class="box-con">
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_67.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">2014-06-25期</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">非常了得</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_68.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">2014-06-25期</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_69.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">2014-06-25期</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_70.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">2014-06-25期</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_71.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">2014-06-25期</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_72.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">2014-06-25期</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_73.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">2014-06-25期</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_74.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+			</ul>
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至72集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至38集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_43.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至14集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_44.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至45集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_46.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至19集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_67.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">2014-06-25期</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">非常了得</a></h4>
+					<p>董洁王大治致敬毕业季</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_68.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">2014-06-25期</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">一又二分之一的</a></h4>
+					<p>鲜肉团致青春萌到融化</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_69.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">2014-06-25期</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">恋恋不忘</a></h4>
+					<p>霸道帅总裁虐恋到底</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_70.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">2014-06-25期</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_71.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">2014-06-25期</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_72.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">2014-06-25期</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_73.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">2014-06-25期</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_74.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+			</ul>
+			<ul class="box-list mt20">
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_41.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至72集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">犀利仁师</a></h4>
+					<p>火爆剩女的麻辣师生恋</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_42.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至38集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4 class="red"><a href="javascript:;">幸福美丽绽放</a></h4>
+					<p>左手前夫右手高富帅</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_43.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至14集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福从天而降</a></h4>
+					<p>女神刘涛贤妻惨变前妻</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_44.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至45集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">冒牌英雄</a></h4>
+					<p>壮士女侠共谱英雄恋歌</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">幸福爱人</a></h4>
+					<p>本季开启夺爱模式</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_46.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至32集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">青春烈火</a></h4>
+					<p>雅典娜女神空降战场</p>
+				</li>
+				<li>
+					<a href="javascript:;" class="opa">
+						<img src="skin/img/d_45.jpg" alt="" />
+						<i class="bg"></i>
+						<span class="txt">更新至19集</span>
+						<i class="mask"></i><i class="play"></i>
+					</a>
+					<h4><a href="javascript:;">涛女郎</a></h4>
+					<p>豪门赚钱之余谈虐身恋</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- box-aside -->
+	<div class="box-aside">
+		<!-- hit-list 综艺排行榜 -->
+		<div class="hit-ranking">
+			<!-- hit-item -->
+			<h3 class="aside-hd aside-hd-bg">
+				<em>综艺排行榜</em>
+			</h3>
+			<!-- hit-bd -->
+			<div class="hit-bd">
+				<div class="hit-list">
+					<ol>
+						<li><i class="top-three">1</i><a href="javascript:;">相爱十年</a></li>
+						<li><i class="top-three">2</i><a href="javascript:;">一又二分之一</a></li>
+						<li><i class="top-three">3</i><a href="javascript:;">恋恋不忘</a></li>
+						<li><i>4</i><a href="javascript:;">犀利仁师</a></li>
+						<li><i>5</i><a href="javascript:;">幸福从天而降</a></li>
+					</ol>
+					<ol>
+						<li><i>6</i><a href="javascript:;">幸福爱人</a></li>
+						<li><i>7</i><a href="javascript:;">刀客家族的女友</a></li>
+						<li><i>8</i><a href="javascript:;">勇士之城</a></li>
+						<li><i>9</i><a href="javascript:;">涛女郎</a></li>
+						<li><i>10</i><a href="javascript:;">金站</a></li>
+					</ol>
+				</div>
+			</div>
+		</div>
+
+		<!-- opear-type -->
+		<div class="opear-type variety-type">
+			<!-- hit-item -->
+			<h3 class="aside-hd aside-bt">
+				<em>综艺</em>
+			</h3>
+			<!-- type-bd -->
+			<div class="type-bd">
+				<a href="javascript:;" class="red">变形记</a>
+				<a href="javascript:;" class="red">我是歌手</a>
+				<a href="javascript:;" class="red">妈妈咪呀</a>
+				<a href="javascript:;" class="green">爸爸去哪儿</a>
+				<a href="javascript:;" class="green">快乐大本营</a>
+				<a href="javascript:;" class="green">最美和声</a>
+				<a href="javascript:;" class="green">我不是明星</a>
+				<a href="javascript:;">年代秀</a>
+				<a href="javascript:;">超级访问</a>
+				<a href="javascript:;">超级演说家</a>
+				<a href="javascript:;">非你莫属</a>
+				<a href="javascript:;">军情观察室</a>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<!-- entertainment：娱乐 -->
+<div class="layout entertainment"></div>
+
+<!-- manga：动漫 -->
+<div class="layout manga"></div>
+
+<!-- documentary：纪录片 -->
+<div class="layout documentary"></div>
+
+<!-- beauty：美女 -->
+<div class="layout beauty"></div>
+
+<!-- funny：搞笑 -->
+<div class="layout funny"></div>
+
+<!-- sports：体育 -->
+<div class="layout sports"></div>
+
+<!-- music：音乐 -->
+<div class="layout music"></div>
+
+<!-- games：游戏 -->
+<div class="layout games"></div>
+
+<!-- partner -->
+<div class="layout partner"></div>
+
+<!-- footer -->
+<footer class="footer">
+	<p class="footer-nav">
+		<a href="javascript:;">意见反馈</a> |
+		<a href="javascript:;">官方微博</a> |
+		<a href="javascript:;">加入收藏</a> |
+		<a href="javascript:;">版权声明</a> |
+		<a href="javascript:;">关于我们</a>
+	</p>
+	<p class="copy">
+		<span>Copyright © 360安全网址. All Rights Reserved.</span>
+		<span>文网文(2010)167号</span>
+		<span>信息网络传播视听节目许可证:1109357</span>
+		<span><a href="javascript:;">ICP证号：浙B2-20090064</a></span>
+		<span>温州市迅驰数码科技有限公司</span>
+	</p>
+</footer>
+
+<!-- dad-go-where -->
+<div id="dad-go-where" class="dad-go-where"></div>
+
+<!-- feedback -->
+<div id="feedback" class="feedback"></div>
+
+</body>
+</html>

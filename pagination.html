@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分页效果</title>
+<link rel="stylesheet" href="css/reset.css" />
+<style>
+body{ background: #E9E9E7; text-align: center; }
+.header{ width: 100%; height: 40px; }
+.header span{ display: block; width: 100%; height: 40px; position: fixed; line-height: 40px; text-align: center; background: #fff; color: #009A61; z-index: 100; }
+
+.ul1{ position: relative; width: 360px; height: 360px; margin: 40px auto; }
+.ul1 li{ display: inline; float: left; width: 100px; height: 100px; margin: 10px; opacity: 1; filter:alpha(opacity:100); border-radius: 10px; }
+.main span{ display: inline-block; width: 30px; height: 30px; line-height: 30px; text-align: center; border: 1px solid #fff; background: #fff; color: #009A61; border: 1px solid #009A61; cursor: pointer; }
+.main .active{ background: #009A61; color: #fff; }
+</style>
+<script src="js/common.js"></script>
+<script src="js/pagination.js"></script>
+</head>
+<body>
+	<div class="header">
+		<span>分页效果</span>
+	</div>
+	<div class="main">
+		<ul id="ul" class="ul1">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<span class="page active">1</span>
+		<span class="page">2</span>
+		<span class="page">3</span>
+		<!-- <input id="btn" type="button" value="1" /> -->
+	</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+
+.list-cate{ width: 978px; height: 369px; border: 1px solid #e8e8e8; margin: 0 auto; font-size: 12px; color: #333; }
+
+.list-cate a{ color: #2bb8aa; }
+.list-cate a:hover, .list-cate .cate-hover{ background-color: #2bb8aa; color: #fff; border-radius: 2px; }
+.det-cate a:hover .num{ color: #fff; }
+.list-cate .u-hot{ color:#f76120; }
+
+.hot-cate{ height: 35px; line-height: 32px; background: #f8f8f8; }
+.hot-tit{ margin-left: 21px; }
+.hot-cate a{ margin-left: 11px; padding: 3px 5px; }
+.cate-box{ padding: 0 15px; }
+.bott{ border-bottom: 1px dotted #dbdbdb; }
+.all-cate{ height: 45px; line-height: 45px; }
+.btn-all{ border: 1px solid #2bb8aa; padding: 4px 8px 3px; text-align: center; }
+.btn-relax{ position: relative; border: 1px solid #2bb8aa; padding: 4px 17px 3px 8px; text-align: center; }
+.btn-relax .triangle{ right: 6px; top: 8px;}
+
+.det-cate{ height: 90px; padding-top: 15px; }
+.det-cate ul{ width: 897px; padding-left: 13px; }
+.cate-tit{ line-height: 27px; }
+.det-cate a{ padding: 5px 4px; }
+.det-cate li{ display: inline; float: left; margin-right: 14px; line-height: 27px; }
+.det-cate span{ color: #999; margin-left: 2px; }
+
+.area-cate{ height: 63px; padding-top: 15px; }
+.one-cate{ height: 36px; padding-top: 15px; }
+
+.area-cate .metro{ background: url(../images/mt_bg5.png) no-repeat -185px 3px; padding-left: 20px;/**/ }
+.area-cate .metro:hover{ background-position: -185px -17px; }
+
+.rank-tab{ width: 978px; height: 29px; margin: 8px auto 10px; border: 1px solid #e8e8e8; }
+.rank-tab a{ display: inline; float: left; height: 29px; padding: 1px 15px 0 20px; margin-top: -1px; line-height: 29px; text-align: center; }
+.bor-right{ border-right: 1px solid #e8e8e8; }
+.bor-right:hover{ border-top: 2px solid #2bb8aa; padding-top: 0px; line-height: 27px; }
+

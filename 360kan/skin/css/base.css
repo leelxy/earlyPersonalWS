@@ -1,0 +1,84 @@
+/*
+ * @description: webiste base.css
+ * @author: sole
+ * @create: 2013/5/12
+ * @update: sole 2013/11/24
+*/
+
+/* basic */
+body,iframe,div,p,h1,h2,h3,h4,h5,h6,fieldset,ul,ol,dl,dt,dd,form,input,button,textarea,select,i{ margin:0; padding:0; font-weight:normal; }
+article,aside,header,section,footer,nav,figure,menu{ display:block; }
+body { font:12px/2 tahoma, Helvetica, Arial; }
+input,button,select,textarea { font-family:tahoma, Helvetica, Arial; outline:none }
+textarea { resize:none }
+input { width:auto; overflow:visible; }
+ul,ol { list-style:none; overflow:hidden; }
+i,em,u { font-style:normal; }
+a { color:#666; text-decoration:none; }
+a:visited { }
+a:hover { color:#389f0c; text-decoration:none; }
+a:active {  }
+img { border:0 none; vertical-align:middle; }
+.clear, .layout { *zoom:1; }
+.clear:after, .layout:after { display:table; clear:both; content:""; }
+
+/*layout_basic*/
+.layout{ color:#666; width:980px; margin:0 auto; text-align:center; }
+
+
+/* header */
+.header { }
+.top-view { height:75px; padding:10px 0; }
+.logo { float:left; margin:12px 0; }
+
+.search { position:relative; float:left; width:540px; height:32px; margin:22px; color:#ccc; }
+.search input { font-size:14px; }
+.search .key { width:300px; height:20px; padding:3px 5px; line-height:1.4; border-width:2px 0 2px 2px; border-style:solid; border-color:#3aa60d; }
+.search .sbt { width:62px; height:30px; background:url(../img/search_sbt.png) repeat-x 0 0; border:1px solid #329308; color:#fff; }
+.search a { margin:0 8px; }
+.search a:hover { color:#f00; }
+.search .history i, .search .list-bd li .btn-remove { display:inline-block; width:10px; height:4px; margin-left:5px; background:url(../img/his_btn.png) no-repeat 0 0; vertical-align:middle; }
+.search .history-active i { background-position:0 -20px; }
+.search .history-list { display:none; position:absolute; top:30px; right:10px; width:231px; color:#999; }
+.search .list-hd, .search .list-ft, .search .list-bd { height:16px; background:url(../img/his.png) no-repeat 0 0; }
+.search .list-ft { height:6px; background-position:left bottom; }
+.search .list-bd { height:auto; background-repeat:repeat-y; background-position:-233px 0; text-align:left; }
+.search .list-bd a { margin:0; }
+.search .list-bd li { height:24px; padding:2px 10px; overflow:hidden; }
+.search .list-bd li:hover { background-color:#eee; }
+.search .list-bd li a { float:left; width:160px; color:#333; }
+.search .list-bd li span { margin-left:10px; }
+.search .list-bd li .btn-remove { width:10px; height:10px; margin-left:5px; margin-top:-1px; background-position:0 -57px; cursor:pointer; }
+.search .list-bd .clear-history { margin:0 10px; border-top:1px solid #ddd; text-align:right; }
+.search .list-bd .clear-history a { color:#056ea1; text-decoration:underline; }
+.search .list-bd .no-history { text-align:center; padding:10px; }
+
+.activity { float:right; height:75px; overflow:hidden; }
+
+/* nav */
+.nav { height:40px; background:url(../img/nav.png) repeat-x 0 0; }
+.nav ul {  }
+.nav ul li { float:left; line-height:40px; }
+.nav .main-nav { float:left; }
+.nav .main-nav li { font-size:14px; font-weight:bold; background:url(../img/nav_line.png) no-repeat left center; }
+.nav .main-nav li:first-child { background:none; }
+.nav li a, .nav li a span { display:inline-block; height:40px; }
+.nav li a { padding-left:15px; color:#fff; }
+.nav li a span { padding-right:15px; }
+.nav li a:hover, .nav li a:hover span, .nav .now a, .nav .now a span { background:url(../img/nav_now.png) no-repeat; }
+.nav li a:hover { background-position:left 0; }
+.nav li a:hover span { background-position:right -41px; }
+.nav .now a,.nav .now a:hover { background-position:left -82px; color:#389f0c; }
+.nav .now a span, .nav .now a:hover span { background-position:right -123px; }
+
+.nav .sub-nav { float:right; }
+.nav .sub-nav li { position:relative; float:left; font-size:12px; }
+.nav .sub-nav li i { position:absolute; top:5px; left:35px; width:23px; height:10px; background:url(../img/hot.png) no-repeat; z-index:10; }
+.nav .sub-nav li a { padding-left:10px; }
+.nav .sub-nav li a span { padding-right:10px; }
+
+.footer { text-align:center; }
+.footer .copy, .footer .copy a { color:#999; }
+.footer .copy a:hover { color:#389f0c; }
+.footer .copy span { margin:0 10px; }
+

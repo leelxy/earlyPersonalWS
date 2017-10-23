@@ -1,0 +1,113 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*内容*/
+
+.menu-center-box{ width: 764px; height: 479px; border-right: 1px solid #e8e8e8; border-bottom: 1px solid #e8e8e8; }
+.shopping-list{ padding: 0 15px; }
+.shopping-list li{ height: 48px; line-height: 48px; border-bottom: 1px solid #ededed; }
+.shopping-list a, .shopping-tit{ margin-right: 21px; }
+.shopping-tit{ position: relative; padding-left: 20px; font-size: 12px; color: #999; }
+.icon-shop, .icon-area, .icon-uml, .icon-sift{ background: url(../images/mt_bg1.png) no-repeat; position: absolute; top: 0; left: 0; }
+.icon-shop{ background-position: -115px -64px; width: 12px; height: 12px; }
+.icon-area{ background-position: -84px -62px; width: 11px; height: 14px; }
+.icon-uml{ background-position: -132px -62px; width: 13px; height: 14px; }
+.icon-sift{ background-position: -98px -62px; top: 3px; width: 14px; height: 14px; }
+
+/*本周精选*/
+.sift-box{ padding: 15px 16px 15px 15px; }
+.sift-box .sift-tit-box{ height: 26px; }
+.sift-tit{ font-size: 14px; color: #666; font-weight: bold; }
+.sift-dot-list li{ display: inline; float: left; background: url(../images/mt_bg3.png) no-repeat -14px -77px; width: 10px; height: 10px; margin-left: 8px; }
+.sift-dot-list li.active{ background-position: 0 -77px; }
+
+.sift-ad-box{ border-bottom: 1px solid #ededed; }
+.sift-ad{ width: 366px; }
+.sift-ad-bott{ height: 50px; position: relative; }
+/*.sift-ad-left{ margin-left: -7px; }
+.sift-ad-right{ margin-right: -7px; }*/
+
+.sift-ad-icon{ background: url(../images/mt_bg3.png) no-repeat; width: 7px; height: 56px; position: absolute; top: -5px; }
+.sift-icon-left{ background-position: -145px 0; left: -7px; }
+.sift-icon-right{ background-position: -136px 0; right: -7px; }
+
+.sift-ad-tit{ width: 248px; padding-left: 10px; height: 43px; padding-top: 7px; background: #f6f6f6; overflow: hidden; }
+.sift-tit-bott{ color: #666; font-size: 14px; display: block; width: 100%; }
+.sift-tit-des{ color: #999; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis; }
+
+.line-wave{ background: url(../images/mt_bg3.png) no-repeat -154px -5px; width: 13px; height: 50px; position: absolute; bottom: 0; left: 0; }
+.sift-price{ position: relative; height: 100%; line-height: 50px; width: 108px; text-align: center; /*border-right: 1px solid #d6d6d6; */}
+
+/*菜单右侧*/
+.menu-right{ width:208px; height:100%; }
+.menu-down{ position: relative; height: 38px; }
+.menu-down a{ background: url(../images/mt_ad_bg.png) no-repeat -100px -856px; position: absolute; bottom: 10px; right: 0; width: 106px; height: 18px; }
+
+.menu-right-ad{ width: 206px; height: 479px; border: 1px solid #e8e8e8; border-top: 2px solid #2bb8aa; }
+.menu-right-more{ height: 37px; border-bottom: 1px solid #eee; position: relative; }
+.menu-right-more a{ display: block; height: 100%; line-height: 37px; margin-right: 11px; text-align: right; }
+.dream-true{ background: url(../images/mt_ad_bg.png) no-repeat -11px -364px; width: 65px; height: 17px; position: absolute; top: 9px; left: 10px; }
+.menu-right-draw{ height: 158px; border-bottom: 1px dotted #ddd; }
+.menu-right-ing{ height: 69px; border-bottom: 1px dotted #ddd; font-size: 12px; padding: 22px 10px 0 10px; }
+
+
+/*名店抢购*/
+.rush{ margin-top: 14px; margin-bottom: 36px; }
+.rush-left{ height: 290px; width: 980px; border: 1px solid #eee; overflow: hidden; }
+.rush-left-tit{ height: 33px; padding-top: 12px; background: #f6f6f6; }
+.rush-icon{ background: url(../images/mt_ad_bg.png) no-repeat 0 -970px; width: 126px; height: 20px; margin-left: 15px; text-indent: -999em; }
+.all-spec{ width: 76px; height: 19px; border: 1px solid #e3e3e3; border-bottom: 1px solid #aaa; text-align: center; line-height: 19px; font-weight: normal; color: #333; background: url(../images/mt_btn_bg.png) repeat-x; margin-right: 15px; }
+
+.rush-left ul{ padding: 15px 23px 23px 15px; margin-right: -38px; }
+.rush-left li{ display: inline; float: left; width: 207px; height: 207px; margin-right: 38px; }
+.rush-ad-link{ height: 40px; line-height: 16px; margin-top: 18px; overflow: hidden; }
+.rush-price{ font-size: 14px; color: #f76120; font-family: Arial, Helvetica, sans-serif; margin-right: 7px; }
+.phone-down{ padding: 2px 5px; background: #f76120; font-size: 12px; color: #fff; }
+
+
+.rush-right{ height: 287px; width: 206px; border: 1px solid #e8e8e8; }
+.rush-right ul{ padding: 0 10px; }
+.rush-right li{ height: 95px; border-bottom: 1px dotted #ddd; position: relative; }
+.rush-right li a{ background: url(../images/mt_ad_bg.png) no-repeat; position: absolute; top: 22px; left: 0; width: 184px; height:58px; }
+.rush-right .ad-one{ background-position: -2px -271px; }
+.rush-right .ad-two{ background-position: -2px -172px; }
+.rush-right .ad-three{ background-position: -2px -680px; }
+
+
+/*美食*/
+.goods-box{ width: 980px; overflow: hidden; }
+.good-tit{ height: 40px; line-height: 40px; border-bottom: 2px solid #e8e8e8; }
+.good-tit h3{ position: relative; padding-left: 28px; font-size: 20px; }
+.good-tit .icon-tit{ background: url(../images/mt_bg2.png) no-repeat -82px 0; width: 22px; height: 22px; position: absolute; bottom: 8px; left: 0; }
+
+.good-tit .all-link{ display: inline-block; width: 50px; height: 24px; line-height: 24px; border: 1px solid #eee; text-align: center; margin-left: 15px; }
+.cate-link span{ margin: 0 8px; }
+.goods-list{ margin-right: -16px; padding: 16px 0; }
+.goods-list li{ float: left; display: inline; width: 314px; height: 347px; padding-bottom: 1px; border: 1px solid #e8e8e8; margin-right: 16px; color: #999; }
+.good-img{ display: block; position: relative; }
+.good-hover{ display: none; position: absolute; bottom: 0; left: 0; padding: 10px 15px; }
+.goods-list li:hover .good-hover{ display: block; }   /*改js*/
+.goods-list li:hover{ border-bottom: 2px solid #2eb6aa; padding-bottom: 0; }
+.shadow-bg{ width: 100%; height: 100%; position: absolute; bottom: 0; left: 0; background: #000; opacity: 0.5; }
+.good-info{ color: #fff; position: relative; z-index: 1; padding-left: 15px; line-height: 22px; }
+.info_icon{ background: url(../images/mt_bg5.png) no-repeat 0 0 ; width: 9px; height: 13px; position: absolute; top: 0; left: 0; }
+
+.goods-tit-box{ margin: 16px 16px 0; height: 104px; }
+
+.short-tit{ display: block; font-size: 16px; color: #333; text-indent: -0.5em; }
+
+.goods-tit-p{ }
+.store-price{ font-size: 12px; margin-left: 10px; }
+.store-price i{ text-decoration: line-through; font-style: normal; margin-left: 5px; }
+.sell-box{ height: 35px; line-height: 35px; border-top: 1px solid #f3f3f3; padding: 0 16px; font-size: 12px; }
+.sell-num{ color: #f76120; font-family: Arial, Helvetica, sans-serif; font-weight: normal; }
+.star-gray, .star-orang{ display: block; background: url(../images/mt_bg4.png) repeat-x ; height: 12px; }
+.star-gray{ background-position: 0 -17px; width: 60px; margin-top: 10px; margin-right: 5px; }
+.star-orang{ background-position: 0 0; }
+
+.more-shopping{ width: 978px; height: 35px; line-height: 35px; margin-bottom: 48px; border: 1px solid #f0f0f0; background: url(../images/more_shop_bg.png) repeat-x; text-align: center; font-size: 14px; }
+.more-shopping a{ position: relative; }
+.more-icon{ background: url(../images/mt_ad_bg.png) no-repeat 0 -916px; width: 13px; height: 13px; position: absolute; top: 0; right: -18px; }
+
+.more-last{ margin-bottom: 35px; }
+.shopping-tab{ width: 978px; height: 125px; border: 1px solid #e8e8e8; margin-bottom: 20px; }

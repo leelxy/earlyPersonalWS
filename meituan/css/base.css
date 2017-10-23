@@ -1,0 +1,126 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*公共样式*/
+.left{ display:inline; float:left; }
+.right{ display:inline; float:right; }
+.clear:after{ display:block; content:''; clear:both; }
+.clear{ zoom:1; }
+body{ font: normal 14px/1.5 Tahoma,Helvetica,arial,sans-serif; background-color: #fff; color: #000; }
+a{ font-size:12px; font-family:'宋体'; color: #666; }
+a:hover{ color: #2bb8aa; }
+
+.u-hot, .u-price{ color:#f76120; }
+.u-price{ font-size: 22px; font-family: Arial, Helvetica, sans-serif; }
+.u-price-icon{ font-weight: normal; font-size: 14px; margin-right: 5px; }
+
+/*a.underline:hover{ text-decoration: underline; }*/
+
+.g-box-index, .g-box{ margin:0 auto; }
+.g-box-index{ width:1200px; }
+.g-box{ width: 980px; }
+
+/*公共头部*/
+/*顶部导航*/
+.hd-nav{ width:100%; height:14px; line-height: 14px; padding: 8px 0 7px 0; background:#f5f5f5; border-top:1px solid #eee; border-bottom:1px solid #dfdfdf; font-size: 12px; color: #666; }
+.hd-nav-left li, .hd-nav-right li{ display: inline; float: left; }
+.hd-nav-left .login, .hd-nav-left .regist{ margin-left: 15px; }
+.hd-nav-left .once-mt{ border-right: 1px solid #ddd; padding-right: 11px; }
+.hd-nav-left .phone-mt{ padding-left: 8px; }
+.hd-nav-left .phone-mt a{ position: relative; padding-left: 22px; }
+.hd-nav-left .icon-phone{ background: url(../images/mt_bg.png) no-repeat 0 -154px; width: 10px; height: 16px; position: absolute; left: 9px; top: -2px; }
+.triangle{ border: 3px dashed transparent; border-top: 3px solid #999; position: absolute; top: 4px; right: -14px; line-height: 0; overflow: hidden; }
+.hd-nav-right a{ position: relative; padding-left: 12px; }
+.hd-nav-right .buy-car{ padding-left: 12px; }
+.hd-nav-right .buy-car a{ padding-left: 22px; }
+.hd-nav-right li{ border-right: 1px solid #ddd; padding-right: 22px; }
+.hd-nav-right .nav-more{ border: none;}
+.hd-nav-right .buy-num{ color: #f76120; font-family: Tahoma, Geneva, sans-serif; font-weight: normal; }
+.hd-nav-right .icon-car{ background: url(../images/mt_bg1.png) no-repeat -35px -78px; width: 13px; height: 12px; position: absolute; top: 0; left: 0; }
+/*顶部广告*/
+.hd-ad{ display:block; height:60px; background:#E9BE01 url(../images/mt_ad.jpg) no-repeat 0; }
+/*中间广告*/
+.center-ad{ display:block; height:88px; background:#E9BE01 url(../images/mt_ad.jpg) no-repeat 0; border: 1px solid #e8e8e8; margin: 10px auto; }
+/*顶部搜索*/
+.search{ height:112px; }
+.logo-box{ position: relative; }
+#logo{ background: url(../images/mt_bg.png) no-repeat 0 -78px; width: 82px; height: 54px; position: absolute; top: 22px; left: 0; text-indent: -999em; }
+.se-city-box{ margin-left: 92px; padding-top: 30px; }
+.se-city-box .current-city{ font-size: 17px; font-weight: bold; color: #000; }
+.se-city-box .change-city{ display: block; width: 58px; height: 20px; border: 1px solid #eee; line-height: 20px; text-align: center; color: #999; }
+
+.search-box-index{ width: 593px; margin: 26px 0 0 148px; }
+.search-box{ width: 496px; margin: 24px 0 0 93px; }
+.search-cate-box{ border: 3px solid #2db8ad; height: 40px; position: relative; }
+.search-cate{ overflow: hidden; width: 61px; padding-left: 1px; border-right: 1px solid #ddd; position: absolute; top: 0; left: 0; }
+/*js*/
+.search-cate:hover{ padding-left: 0; border: 1px solid #ddd; border-top: none; }
+.search-cate:hover .cate-hide{ display: block; }
+
+.search-cate li{ height: 40px; line-height: 40px; text-align: center; background: #fff; }
+.cate-first{ position: relative; margin-left: -8px; }
+.cate-first .triangle{ top: 50%;  right: 7px; }
+.cate-hide{ display: none; }
+.search-txt-same{ height: 16px; line-height: 16px; padding:12px 5px; margin-left: 63px; font-size: 14px; color: #757575; }
+.search-txt-index{ width: 435px; }
+.search-txt{ width: 338px; }
+.btn-sea{ width: 79px; height: 42px; background: #2db8ad; color: #fff; font-size: 14px; cursor: pointer; }
+
+/*
+.search-box{ margin-top: 26px; margin-left: 148px; width: 593px; }
+.search-box .search-txt{ border: 3px solid #2db8ad; width: 508px; height: 40px; }
+.search-box .btn-sea{ width: 79px; height: 46px; background: #2db8ad; color: #fff; font-size: 14px; }*/
+.search-box-kw{ margin-top: 8px; }
+.search-box-kw a{ margin-right: 22px; }
+
+.search .hd-right{ background: url(../images/mt_bg.png) no-repeat 0 -30px; width: 208px; height: 42px; margin-top: 28px; }
+.hd-right a{ height: 100%; }
+.hd-r-one, .hd-r-three{ width: 64px; }
+.hd-r-two{ width: 80px; }
+
+/*菜单左侧*/
+/*.menu{ height:520px; }*/
+.menu-left{ width:215px; }
+.menu-tit{ width: 200px; height:40px; position: relative; background:#2bb8aa; font-size:14px; color:#fff; line-height:40px; padding-left:15px; }
+.menu-tit b{ width: 17px; height: 10px; background: url(../images/mt_down.png) no-repeat; position: absolute; top: 50%; margin-top: -5px; right: 20px; }
+.menu-list{ padding: 0 10px; height: 478px; border:2px solid #2bb8aa; border-top: none; }
+.hide-menu{ display: none; }
+/*.menu-tit:hover .hide-menu{ display: block; }*/
+.menu-list li{ padding: 11px 6px 10px 5px; border-top: 1px solid #eee; }
+.menu-list .cate{ font-size: 14px; }
+.list-a a{ margin-right: 7px; }
+/*菜单中间*/
+.menu-center{ width:765px; height:100%; }
+.menu-center-list{ height:38px; padding-left: 15px; line-height:38px; border-bottom:2px solid #2bb8aa; font-weight:bold; }
+.menu-center-list li{ display:inline; float:left; }
+.menu-center-list a{ font-size:14px; padding: 0 15px; }
+.menu-center-list a:hover{ background: #2bb8aa; color: #fff; height: 100%; display: block; }
+.menu-center-list .menu_rush, .menu-center-list .menu_rush:hover{ display: block; background: url(../images/mt_ad_bg.png) no-repeat 0 -993px; width: 81px; height: 16px; margin: 10px 0 0 15px; text-indent: -999em; }
+
+
+/*公共底部*/
+#footer{ height: 328px; width: 100%; background: #f6f6f6; border-top: 3px solid #3aa2a2; }
+.footer-list{ width: 979px; height: 180px; border-left: 1px dotted #a5a5a5; margin: 0 auto; }
+.footer-list a{ color: #3e4545; }
+.foot-item{ display: inline; float: left; width: 162px; height: 158px; padding-left: 25px; padding-top: 22px; border-right: 1px dotted #a5a5a5; }
+.foot-item h4{ padding-bottom: 5px; }
+.foot-ul li{ background: url(../images/mt_dot_bg.png) no-repeat 0; padding-left: 12px; }
+.footer-last{ width: 201px; font-size: 11px; font-family: 'Microsoft YaHei'; color: #666; }
+.serv-course{ position: relative; }
+.serv-icon{ position: absolute; top: -4px ; left: 60px; background: url(../images/mt_bg6.png) no-repeat 0 -40px; width: 52px; height: 49px; }
+.serv-item{ padding-top: 64px; }
+.serv-course .ref-course{ color: #2bb8aa; }
+.serv-course .ref-course:hover{ text-decoration: underline; }
+.serv-time{ margin-top: 15px; }
+.foot-copyright{ font-size: 12px; color: #999; margin-top: 32px; text-align: center; }
+.foot-copyright a{ color: #999; }
+.foot-copyright a:hover{ text-decoration: underline; color: #999; }
+.foot-link-box{ position: relative; margin-top: 22px; }
+.foot-link{ position: absolute; left: 50%; top: 0; }
+.foot-link li{ display: inline; float: left; margin-right: 14px; position: relative; left: -50%; top: 0; }
+.foot-link a{ display: block; background: url(../images/mt_bg6.png) no-repeat; height: 40px; }
+.foot-link .foot-record{ background-position: 0 0; width: 111px; }
+.foot-link .foot-alipay{ background-position: -240px 0; width: 123px; } 
+.foot-link .foot-tenpay{ background-position: -370px 0; width: 87px; }
+.foot-link .foot-cerdible{ background-position: -461px 0; width: 113px; }
+.foot-link .foot-consume{ background-position: -581px 0; width: 123px; }

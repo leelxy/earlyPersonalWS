@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0; padding:0; }
+/*body, h1, h2, h3, h4, p, dl, dd, ol, ul, form, input, button  textarea table th td */ 
+a{ text-decoration:none; }
+a img{ display: block; border: none; }
+li{ list-style:none; }
+input{ border:none 0; background:none; }
+input, textarea, select{ outline: none; }

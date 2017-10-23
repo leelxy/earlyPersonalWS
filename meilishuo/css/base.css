@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*清除默认样式*/
+body, p, h1, h2, h3, h4, ul, ol, dl, dd{margin:0; padding:0;}
+li{list-style:none;}
+a{text-decoration:none;}
+a img{display:block; border:none;}
+a{color:#666;}
+b{ font-family:Arial, Helvetica, sans-serif; color:#666;}
+a.hot, a:hover, a.active{color:#f69;}
+
+/*公共部分*/
+body{font-size:12px; font-family:'宋体'; background:#FFF;}
+.box{width:1200px; margin:0 auto;}
+a:hover{color:#f69;}
+.left{float:left; display:inline;}
+.right{float:right; display:inline;}
+.clear:after{display:block; content:''; clear:both;}
+
+
+/*头部*/
+#header .hd_top{ background:#f5f5f5; border-bottom:1px solid #eee; }
+.hd_top p{text-align:right; margin-right:-10px;}
+.hd_top a{display:inline-block; height:39px; line-height:39px; margin-left:13px; margin-right:10px; background-repeat:no-repeat; background-position:0;}
+.weibo{background-image:url(../images/hd_weibo.png); padding-left:19px;}
+.qq{background-image:url(../images/hd_qq.png); padding-left:18px;}
+.change{background-image:url(../images/hd_change.png); padding-left:23px;}
+.app{background-image:url(../images/hd_app.png); padding-left:18px;}
+.hd_search{height:50px; padding-top:16px;}
+.hd_search .logo{background:url(../images/logo.png) no-repeat; display:block; width:107px; height:37px; text-indent:-9999em; margin-right:254px;}
+.hd_search .txt{background:url(../images/search.jpg) no-repeat; width:464px; height:34px;}
+.hd_search .btn a{background-color:#f5f5f5; border:1px solid #e6e6e6; height:30px; line-height:30px; font-size:12px; }
+.hd_search .order{background:url(../images/hd_order.png) no-repeat 8px; padding-left:30px; padding-right:9px; margin-left:10px;}
+.hd_search .view{background:url(../images/hd_car.png) no-repeat 8px; padding-left:27px; padding-right:9px; }
+.hd_nav{background:#ff6599; font-size:14px; font-weight:bold; height:40px; line-height:40px; width:100%; }
+.nav_list{overflow:hidden; padding-left:316px;}
+.hd_nav li{float:left;}
+.hd_nav a{color:#fff; padding:0 15px; float:left;}
+.hd_nav a:hover{background:#ed3577;}
+
+
+/*页脚*/
+#footer{ background:#f5f5f5; border-top:1px solid #ddd; color:#666; font-family:Arial, Helvetica, sans-serif; }
+.foot_con{ margin-top:30px; padding-bottom:27px; }
+.foot_cus{ width:138px; margin-right:55px; position:relative; padding-left:48px; }
+.foot_cus span{ display:block; width:35px; height:35px; background:url(../images/meilishuo_bg.png) no-repeat 0 -114px; position:absolute; top:5px; left:0; }
+.foot_cus strong{ font-size:20px; font-weight:normal; }
+.foot_cus .hotline_tit{ font-size:14px; padding:3px 0 10px 0; }
+.foot_att a{ display:block; position:relative; padding-left:19px; }
+.foot_att span{ background-image:url(../images/meilishuo_bg.png); background-repeat: no-repeat; width:16px; height:16px; position:absolute; top:5px; left:0; }
+.foot_att .xinlang{ background-position: 0 -21px; }
+.foot_att .qqzone{ background-position: -73px -21px; }
+.foot_att .tecent{ background-position: -49px -21px; }
+.foot_wei{ width:138px; }
+.foot_down{ width:140px; position:relative; }
+.foot_down a{ background:url(../images/meilishuo_bg.png) no-repeat 0 -401px; position:absolute; top:33px; left:0; width:131px; height:98px; }
+.friend_link{ line-height:30px; height:30px; border-top:1px solid #e6e6e6; border-bottom:1px solid #e6e6e6; padding-left:10px; }
+.friend_link a{ margin-right:12px; }
+.friend_link span{ float:right; }
+.conmsg{ padding-bottom:15px; line-height:22px; }
+.copyright{ padding-top:10px; line-height:22px; }
+/*页脚公共*/
+h4{ font-size:16px; margin-bottom:12px; }
+.foot_con li{ line-height:26px; }
+.foot_help, .foot_about, .foot_att{ width:68px; margin-right:55px; }

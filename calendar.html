@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义日历</title>
+<link rel="stylesheet" href="css/reset.css" />
+<style>
+body{ background: #E9E9E7; }
+.header{ width: 100%; height: 40px; }
+.header span{ display: block; width: 100%; height: 40px; position: fixed; line-height: 40px; text-align: center; background: #fff; color: #009A61; z-index: 100; }
+
+.calendar{ position: relative; width: 280px; border: 4px solid #CCCCFE; margin: 80px auto; }
+.calendar .date{ display: block; width: 100%; height: 40px; line-height: 40px; text-align: center; color: #fff; background: #A4A4E2; }
+.calendar a{ position: absolute; top: 7px; color: #fff; cursor: pointer; }
+.calendar .prev{ left: 8px; }
+.calendar .next{ right: 8px; }
+.calendar ol{ background: #A4A4E2; overflow: hidden; border-top: 1px solid #fff; }
+.calendar ul{ overflow: hidden; }
+.calendar li{ display: inline; float: left; width: 40px; text-align: center; height: 40px; line-height: 40px; color: #fff; }
+.calendar ul li{ color: #8F91D8; }
+.calendar li.today{ background: #A4A4E2; color: #fff; }
+.calendar li.weekend{ color: #E3A05C; }
+.calendar li.past{ color: #bbb; }
+</style>
+<script src="js/common.js"></script>
+<script src="js/calendar.js"></script>
+</head>
+<body>
+	<div class="header">
+		<span>自定义日历</span>
+	</div>
+	<div class="main">
+		<!-- <div class="calendar">
+			<a href="javascript:;" class="prev">&lt;</a>
+			<a href="javascript:;" class="next">&gt;</a>
+			<span class="date">January 2014</span>
+			<ol>	
+				<li>MO</li>
+				<li>TU</li>
+				<li>WE</li>
+				<li>TH</li>
+				<li>FR</li>
+				<li>SA</li>
+				<li>SU</li>
+			</ol>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+				<li>11</li>
+				<li>12</li>
+				<li>13</li>
+				<li>14</li>
+				<li>15</li>
+				<li>16</li>
+				<li>17</li>
+				<li>18</li>
+				<li>19</li>
+				<li>20</li>
+				<li>21</li>
+				<li>22</li>
+				<li>23</li>
+				<li>24</li>
+				<li>25</li>
+				<li>26</li>
+				<li>27</li>
+				<li>28</li>
+				<li>29</li>
+				<li>30</li>
+				<li>31</li>
+			</ul>	
+		</div> -->
+	</div>
+</body>
+</html>
